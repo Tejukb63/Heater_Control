@@ -1,0 +1,59 @@
+{
+  "version": 1,
+  "author": "teju kb",
+  "editor": "wokwi",
+  "parts": [
+    { "type": "wokwi-breadboard-half", "id": "bb1", "top": -223.8, "left": 242.8, "attrs": {} },
+    { "type": "wokwi-arduino-uno", "id": "uno", "top": 0.6, "left": -19.8, "attrs": {} },
+    {
+      "type": "wokwi-lcd1602",
+      "id": "lcd1",
+      "top": 35.2,
+      "left": 264.8,
+      "attrs": { "pins": "i2c" }
+    },
+    {
+      "type": "wokwi-led",
+      "id": "led1",
+      "top": -147.6,
+      "left": 378.2,
+      "attrs": { "color": "red" }
+    },
+    {
+      "type": "wokwi-buzzer",
+      "id": "bz1",
+      "top": -189.6,
+      "left": 270.6,
+      "attrs": { "volume": "0.1" }
+    },
+    {
+      "type": "wokwi-dht22",
+      "id": "dht1",
+      "top": -210.9,
+      "left": 455.4,
+      "attrs": { "temperature": "24.4" }
+    }
+  ],
+  "connections": [
+    [ "lcd1:SDA", "uno:A4", "green", [ "h0" ] ],
+    [ "lcd1:SCL", "uno:A5", "green", [ "h0" ] ],
+    [ "lcd1:GND", "uno:GND.2", "black", [ "h0" ] ],
+    [ "lcd1:VCC", "uno:5V", "red", [ "h0" ] ],
+    [ "bb1:15b.j", "uno:8", "green", [ "v0" ] ],
+    [ "bb1:14b.j", "uno:GND.1", "green", [ "v0" ] ],
+    [ "bb1:23b.j", "uno:2", "green", [ "v0" ] ],
+    [ "bb1:22b.j", "uno:5V", "green", [ "v0" ] ],
+    [ "bb1:25b.j", "uno:GND.3", "green", [ "v0" ] ],
+    [ "bb1:4b.j", "uno:GND.1", "green", [ "v0" ] ],
+    [ "bb1:5b.j", "uno:7", "red", [ "v0" ] ],
+    [ "bz1:1", "bb1:4b.f", "", [ "$bb" ] ],
+    [ "bz1:2", "bb1:5b.f", "", [ "$bb" ] ],
+    [ "led1:A", "bb1:15b.f", "", [ "$bb" ] ],
+    [ "led1:C", "bb1:14b.f", "", [ "$bb" ] ],
+    [ "dht1:VCC", "bb1:22b.g", "", [ "$bb" ] ],
+    [ "dht1:SDA", "bb1:23b.g", "", [ "$bb" ] ],
+    [ "dht1:NC", "bb1:24b.g", "", [ "$bb" ] ],
+    [ "dht1:GND", "bb1:25b.g", "", [ "$bb" ] ]
+  ],
+  "dependencies": {}
+}
